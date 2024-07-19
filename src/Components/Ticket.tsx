@@ -43,8 +43,12 @@ function Ticket() {
 
               <div className='flex-container-1'>
                 <h1>{eventTitle}</h1>
+                <div className='time-date-line'>
                 <p>7PM</p><p>18/07/2024</p>
-                <p>{countdownTime} until show starts</p>
+                </div>
+                  <div className='countdown-container'>
+                    <p>{countdownTime} until show starts</p>
+                  </div>
               </div>
 
               <div className='flex-container-2'>

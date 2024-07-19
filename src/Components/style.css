@@ -2,25 +2,39 @@
 .flex-container-1 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
     height: 30vh;
     background-color: green;
 
 }
 
-.flex-container-2 {
+.time-date-line {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 30vh;
-    background-color: rgb(76, 174, 76);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
+.countdown-container {
+    display: block;
 }
 
 .flex-container-2 {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+    height: 30vh;
+    background-color: rgb(76, 117, 174);
+
+}
+
+.flex-container-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     height: 30vh;
     background-color: rgb(155, 219, 155);
 

@@ -4,6 +4,7 @@ import { Theme, Button } from '@radix-ui/themes';
 import './App.css';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import qrCode from './assets/qrCode.png'
+import Ticket from './Components/Ticket';
 
 const SCREENS = {
   TICKET: {
@@ -19,6 +20,8 @@ const SCREENS = {
     ctaCopy: ''
   },
 };
+
+
 
 function App() {
   const [screen, setScreen] = useState('TICKET');
@@ -37,12 +40,14 @@ function App() {
       <div className='wrapper'>
         {screen === SCREENS.TICKET.id && (
           <div className='ticket'>
+            <Ticket />
             <h1>Tosca</h1>
             <p>Stuff</p>
             <p>Stuff</p>
             <p>Stuff</p>
             <img src={qrCode} />
           </div>
+
         )}
         {screen === SCREENS.WAYFINDER_TEXT.id && (
           <div className='wayfinder-text'>

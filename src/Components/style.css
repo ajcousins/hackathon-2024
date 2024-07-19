@@ -19,6 +19,12 @@
     display: block;
 }
 
+.seat-index {
+    width: 45px;
+    padding: 10px;
+    text-align: center;
+}
+
 .flex-container-2 {
     display: flex;
     flex-direction: column;

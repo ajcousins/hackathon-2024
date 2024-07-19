@@ -14,7 +14,7 @@ function Ticket() {
 
 
     const [countdownTime, setCountdownTime] = useState(0)
-    const mockTime = 1900;;
+    const mockTime = 1900;
 
     useEffect(() => {
       // Calculate the initial countdown time
@@ -50,11 +50,14 @@ function Ticket() {
                   <div className='countdown-container'>
                     <p>{countdownTime} until show starts</p>
                   </div>
+                  <p>MAIN STAGE</p>
               </div>
 
               <div className='flex-container-2'>
-                <p id='auditorium-level'>LEVEL 6</p>
-                <p id='door-guide'>DOOR F</p>
+                <p className='seat-index' id='auditorium-level'>LEVEL 6</p>
+                <p className='seat-index' id='door-guide'>DOOR F</p>
+                <p className='seat-index' id='seating-row'>ROW A</p>
+                <p className='seat-index' id='seat-number'>SEAT 65</p>
               </div>
 
               <div className="flex-container-3">

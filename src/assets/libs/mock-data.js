@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     data: {
       type: 'event-detail',
       id: 'carmen-by-barrie-kosky',

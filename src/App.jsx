@@ -3,27 +3,48 @@ import '@radix-ui/themes/styles.css';
 import { Theme, Button } from '@radix-ui/themes';
 import './App.css';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { qr_example } from './qr_example';
+import qrCode from './assets/qrCode.png'
 import Ticket from './Components/Ticket';
 
+const SCREENS = {
+  TICKET: {
+    id: 'TICKET',
+    ctaCopy: 'Find My Seat',
+  },
+  WAYFINDER_TEXT: {
+    id: 'WAYFINDER_TEXT',
+    ctaCopy: 'View My Ticket',
+  },
+  WAYFINDER_IMAGES: {
+    id: 'WAYFINDER_IMAGES',
+    ctaCopy: ''
+  },
+};
+
+
+
 function App() {
-  const [screen, setScreen] = useState('ticket');
+  const [screen, setScreen] = useState('TICKET');
+
+  const handleChangeScreen = () => {
+    if (screen === SCREENS.TICKET.id) {
+      setScreen(SCREENS.WAYFINDER_TEXT.id);
+    }
+    if (screen === SCREENS.WAYFINDER_TEXT.id) {
+      setScreen(SCREENS.TICKET.id);
+    }
+  };
 
   return (
-    <Theme accentColor='red' grayColor='sand' radius='large' scaling='95%'>
+    <Theme accentColor='red' grayColor='sand' radius='large'>
       <div className='wrapper'>
-        {screen === 'ticket' && (
-          <>
+        {screen === SCREENS.TICKET.id && (
+          <div className='ticket'>
             <Ticket />
-            <div className='ticket'>
-              <h1>Tosca</h1>
-              <p></p>
-              <p>Stuff</p>
-              <img src={qr_example} alt="qr code for your ticket" />
-            </div>
-          </>
+          </div>
+
         )}
-        {screen === 'wayfinder-text' && (
+        {screen === SCREENS.WAYFINDER_TEXT.id && (
           <div className='wayfinder-text'>
             <h1>1.</h1>
             <ul>
@@ -34,8 +55,11 @@ function App() {
           </div>
         )}
         <div className='bottom-nav'>
-          <Button>
-            Find My Seat
+          <Button
+            style={{ flexGrow: '1', margin: '1em' }}
+            onClick={handleChangeScreen}
+          >
+            {SCREENS[screen].ctaCopy}
             <ArrowRightIcon />
           </Button>
         </div>

@@ -3,7 +3,7 @@ import '@radix-ui/themes/styles.css';
 import { Theme, Button } from '@radix-ui/themes';
 import { data } from '../assets/libs/mock-data';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-
+import qrcode from '../assets/images/qr_example.png'
 
 function Ticket() {
   
@@ -13,7 +13,7 @@ function Ticket() {
             <div className='ticket'>
               <h1>{data.attributes.title}</h1>
               <div>
-              <img src={image}  alt="qr code for your ticket" />
+              <img src={qrcode}  alt="qr code for your ticket" />
               </div>
             </div>
             <div className='wayfinder-text'>

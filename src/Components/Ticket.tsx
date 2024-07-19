@@ -14,11 +14,12 @@ function Ticket() {
 
 
     const [countdownTime, setCountdownTime] = useState(0)
-    const mockTime = 1900;
+    const mockTime = 1721405007152;
 
     useEffect(() => {
       // Calculate the initial countdown time
       const currentTime = Date.now();
+      console.log('currentTime:', currentTime);
       let countdown = mockTime - currentTime;
     
       // Update the countdown state every second
@@ -48,16 +49,35 @@ function Ticket() {
                 <p>7PM</p><p>18/07/2024</p>
                 </div>
                   <div className='countdown-container'>
-                    <p>{countdownTime} until show starts</p>
+                    <p>{Math.floor(countdownTime / 1000)} seconds until show starts</p>
                   </div>
                   <p>MAIN STAGE</p>
               </div>
 
-              <div className='flex-container-2'>
+              {/* <div className='flex-container-2'>
                 <p className='seat-index' id='auditorium-level'>LEVEL 6</p>
                 <p className='seat-index' id='door-guide'>DOOR F</p>
                 <p className='seat-index' id='seating-row'>ROW A</p>
                 <p className='seat-index' id='seat-number'>SEAT 65</p>
+              </div> */}
+
+              <div className='grid'>
+                <div>
+                  LEVEL
+                </div>
+                <div>
+                  DOOR
+                </div>
+                <h1>6</h1>
+                <h1>F</h1>
+                <div>
+                  ROW
+                </div>
+                <div>
+                  SEAT
+                </div>
+                <h1>A</h1>
+                <h1>65</h1>
               </div>
 
               <div className="flex-container-3">

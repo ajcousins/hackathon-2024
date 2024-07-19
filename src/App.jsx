@@ -19,7 +19,7 @@ const DIRECTIONS = [
   'Go to the lift...',
   'Go to level 3',
   'Exit the lift. Take a left and go up the steps...',
-  'Row B. Seat 23',
+  'Row A. Seat 65',
 ];
 
 const SCREENS = {
@@ -78,10 +78,10 @@ function App() {
         )}
         {screen === SCREENS.WAYFINDER_TEXT.id && (
           <div className='wayfinder-text'>
-            <h1>1.</h1>
             <Button onClick={() => setScreen(SCREENS.WAYFINDER_IMAGES.id)}>
               Show me
             </Button>
+            <h1>1.</h1>
             <ul>
               {DIRECTIONS.map((dir, i) => {
                 return (<li key={i}>{dir}</li>)
@@ -92,13 +92,13 @@ function App() {
         {screen === SCREENS.WAYFINDER_IMAGES.id && (
           <div className='wayfinder-text'>
             {/* <h1>Images</h1> */}
-            <Button onClick={() => setScreen(SCREENS.WAYFINDER_IMAGES.id)}>
+            <Button onClick={() => setScreen(SCREENS.WAYFINDER_TEXT.id)}>
               Tell me
             </Button>
             <div className='image-wrapper' onClick={handleImageIncrement}>
-              <h3 className='floating-instructions'>
-                {DIRECTIONS[currentImg]}
-              </h3>
+              <div className='floating-instructions'>
+                <h2>{DIRECTIONS[currentImg]}</h2>
+              </div>
               <img src={IMAGES[currentImg]} />
             </div>
           </div>

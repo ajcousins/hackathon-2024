@@ -32,4 +32,12 @@
 .floating-instructions {
   position:absolute;
   color: white;
+  margin: 3em 2em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  gap: 0.5em;
 }

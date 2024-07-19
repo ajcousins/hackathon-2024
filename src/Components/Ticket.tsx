@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '@radix-ui/themes/styles.css';
 import { Theme, Button } from '@radix-ui/themes';
 // import data from '../assets/libs/mock-data';
-import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { ArrowRightIcon, CardStackIcon } from '@radix-ui/react-icons';
 import qrcode from '../assets/qrCode.png';
 import './style.css';
 
@@ -10,6 +10,7 @@ function Ticket() {
 
   // const eventTitle = data.attributes.title;
   const eventTitle = 'Carmen';
+  
 
 
     const [countdownTime, setCountdownTime] = useState(0)

@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '@radix-ui/themes/styles.css';
 import { Theme, Button } from '@radix-ui/themes';
 import './App.css';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import qrCode from './assets/qrCode.png'
+import qrCode from './assets/qrCode.png';
 import Ticket from './Components/Ticket';
+import way1 from './assets/images/way_01.png';
+import way2 from './assets/images/way_02.png';
+import way3 from './assets/images/way_03.png';
+import way4 from './assets/images/way_04.png';
+import way5 from './assets/images/way_05.png';
+import way6 from './assets/images/way_06.png';
+
+const IMAGES = [way1, way2, way3, way4, way5, way6];
 
 const SCREENS = {
   TICKET: {
@@ -17,23 +25,40 @@ const SCREENS = {
   },
   WAYFINDER_IMAGES: {
     id: 'WAYFINDER_IMAGES',
-    ctaCopy: ''
+    ctaCopy: 'View My Ticket',
   },
 };
 
-
-
 function App() {
   const [screen, setScreen] = useState('TICKET');
+  const [currentImg, setCurrentImg] = useState(0);
 
   const handleChangeScreen = () => {
     if (screen === SCREENS.TICKET.id) {
       setScreen(SCREENS.WAYFINDER_TEXT.id);
+      return;
     }
-    if (screen === SCREENS.WAYFINDER_TEXT.id) {
+    if (
+      screen === SCREENS.WAYFINDER_TEXT.id ||
+      screen === SCREENS.WAYFINDER_IMAGES.id
+    ) {
       setScreen(SCREENS.TICKET.id);
+      return;
     }
   };
+
+  const handleImageIncrement = () => {
+    if (currentImg === IMAGES.length - 1) {
+      setCurrentImg(0);
+      return;
+    }
+
+    setCurrentImg(currentImg + 1);
+  };
+
+  useEffect(() => {
+    console.log('screen:', screen);
+  });
 
   return (
     <Theme accentColor='red' grayColor='sand' radius='large'>
@@ -42,16 +67,29 @@ function App() {
           <div className='ticket'>
             <Ticket />
           </div>
-
         )}
         {screen === SCREENS.WAYFINDER_TEXT.id && (
           <div className='wayfinder-text'>
             <h1>1.</h1>
+            <Button onClick={() => setScreen(SCREENS.WAYFINDER_IMAGES.id)}>
+              Show me
+            </Button>
             <ul>
               <li>Staircase...</li>
               <li>Lift XYZ...</li>
             </ul>
             <p>Stuff</p>
+          </div>
+        )}
+        {screen === SCREENS.WAYFINDER_IMAGES.id && (
+          <div className='wayfinder-text'>
+            {/* <h1>Images</h1> */}
+            <Button onClick={() => setScreen(SCREENS.WAYFINDER_IMAGES.id)}>
+              Tell me
+            </Button>
+            <div className='image-wrapper' onClick={handleImageIncrement}>
+              <img src={IMAGES[currentImg]} />
+            </div>
           </div>
         )}
         <div className='bottom-nav'>

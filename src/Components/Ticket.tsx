@@ -65,12 +65,6 @@ function Ticket() {
                   <img id="qr-code" src={qrcode}  alt="qr code for your ticket" />
                 </div>
             </div>
-          <div className='bottom-nav'>
-            <Button>
-              Find My Seat
-              <ArrowRightIcon />
-            </Button>
-          </div>
         </div>
       </Theme>
     );

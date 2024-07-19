@@ -3,7 +3,6 @@ import '@radix-ui/themes/styles.css';
 import { Theme, Button } from '@radix-ui/themes';
 import './App.css';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import qrCode from './assets/qrCode.png';
 import Ticket from './Components/Ticket';
 import way1 from './assets/images/way_01.png';
 import way2 from './assets/images/way_02.png';
@@ -13,6 +12,15 @@ import way5 from './assets/images/way_05.png';
 import way6 from './assets/images/way_06.png';
 
 const IMAGES = [way1, way2, way3, way4, way5, way6];
+
+const DIRECTIONS = [
+  'Proceed up the ramp...',
+  'Continue to the opposite corner of the room...',
+  'Go to the lift...',
+  'Go to level 3',
+  'Exit the lift. Take a left and go up the steps...',
+  'Row B. Seat 23',
+];
 
 const SCREENS = {
   TICKET: {
@@ -75,10 +83,10 @@ function App() {
               Show me
             </Button>
             <ul>
-              <li>Staircase...</li>
-              <li>Lift XYZ...</li>
+              {DIRECTIONS.map((dir, i) => {
+                return (<li key={i}>{dir}</li>)
+              })}
             </ul>
-            <p>Stuff</p>
           </div>
         )}
         {screen === SCREENS.WAYFINDER_IMAGES.id && (
@@ -88,6 +96,9 @@ function App() {
               Tell me
             </Button>
             <div className='image-wrapper' onClick={handleImageIncrement}>
+              <h3 className='floating-instructions'>
+                {DIRECTIONS[currentImg]}
+              </h3>
               <img src={IMAGES[currentImg]} />
             </div>
           </div>

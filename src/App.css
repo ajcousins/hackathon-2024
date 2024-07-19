@@ -28,3 +28,8 @@
   width: 100%;
   display: flex;
 }
+
+.floating-instructions {
+  position:absolute;
+  color: white;
+}

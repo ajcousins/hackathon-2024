@@ -41,11 +41,6 @@ function App() {
         {screen === SCREENS.TICKET.id && (
           <div className='ticket'>
             <Ticket />
-            <h1>Tosca</h1>
-            <p>Stuff</p>
-            <p>Stuff</p>
-            <p>Stuff</p>
-            <img src={qrCode} />
           </div>
 
         )}

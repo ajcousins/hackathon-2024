@@ -1,11 +1,10 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='wrapper'>
       <h1>
         Tosca
       </h1>
@@ -13,7 +12,7 @@ function App() {
       <p>Stuff</p>
       <p>Stuff</p>
       <div>QR Code</div>
-    </>
+    </div>
   )
 }
 

@@ -3,6 +3,8 @@ import '@radix-ui/themes/styles.css';
 import { Theme, Button } from '@radix-ui/themes';
 import './App.css';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { qr_example } from './qr_example';
+import Ticket from './Components/Ticket';
 
 function App() {
   const [screen, setScreen] = useState('ticket');
@@ -11,13 +13,15 @@ function App() {
     <Theme accentColor='red' grayColor='sand' radius='large' scaling='95%'>
       <div className='wrapper'>
         {screen === 'ticket' && (
-          <div className='ticket'>
-            <h1>Tosca</h1>
-            <p>Stuff</p>
-            <p>Stuff</p>
-            <p>Stuff</p>
-            <div>QR Code</div>
-          </div>
+          <>
+            <Ticket />
+            <div className='ticket'>
+              <h1>Tosca</h1>
+              <p></p>
+              <p>Stuff</p>
+              <img src={qr_example} alt="qr code for your ticket" />
+            </div>
+          </>
         )}
         {screen === 'wayfinder-text' && (
           <div className='wayfinder-text'>
